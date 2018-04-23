@@ -395,6 +395,9 @@ export default {
             // 在切换到下一首歌的歌词之前,把前一首歌的歌词显示的计时器清空
             if(this.currentLyric){
                 this.currentLyric.stop()
+                this.currentTime = 0
+                this.playingLyric = ''
+                this.currentLineNum = 0
             }
             clearTimeout(this.timer)
             this.timer=setTimeout(()=>{

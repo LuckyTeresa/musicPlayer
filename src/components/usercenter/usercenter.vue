@@ -12,12 +12,12 @@
         <span class="text">随机播放全部</span>
       </div>
       <div ref='listWrapper' class="list-wrapper">
-        <scroll ref='favoriteList' class='list-scroll' v-if='currentIndex==0' :data='favoriteList'>
+        <scroll ref='favoriteList' class='list-scroll' v-if='currentIndex===0' :data='favoriteList'>
             <div class="list-inner">
               <songlist :songs='favoriteList' @select='selectSong'></songlist>
             </div>
           </scroll>
-          <scroll ref='playList'  class='list-scroll' v-if='currentIndex==1' :data='playHistory'>
+          <scroll ref='playList'  class='list-scroll' v-if='currentIndex===1' :data='playHistory'>
             <div class="list-inner">
               <songlist :songs='playHistory' @select='selectSong' ></songlist>
             </div>
@@ -58,15 +58,15 @@ import noresult from 'base/no-result/no-result'
     computed: {
       ...mapGetters(['favoriteList','playHistory']),
       noResult(){
-        if(this.currentIndex==0){
+        if(this.currentIndex===0){
           return !this.favoriteList.length
         }else{
-          return !this.playList.length
+          return !this.playHistory.length
 
         }
       },
       noResultDesc(){
-        if(this.currentIndex==0){
+        if(this.currentIndex===0){
           return '暂无收藏的歌曲'
         }else{
           return '还没有听过歌曲哟~'
@@ -85,10 +85,10 @@ import noresult from 'base/no-result/no-result'
         this.$router.back()
       },
       random(){
+        let list=this.currentIndex==0?this.favoriteList:this.playHistory
         if(list.length==0){
           return
         }
-        let list=this.currentIndex==0?this.favoriteList:this.playHistory
         list=list.map((song)=>{
           return new Song(song)
         })
