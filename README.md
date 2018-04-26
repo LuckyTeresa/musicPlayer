@@ -1,5 +1,6 @@
-##musicPlayer  
-###预览  
+##musicPlayer      
+
+###预览      
 ![Markdown](http://i2.bvimg.com/643216/bad6dbed1ec028d6.gif)<br/>
 ![Markdown](http://i2.bvimg.com/643216/f5b08b28cf76c797.gif)<br/>
 ![Markdown](http://i2.bvimg.com/643216/b8b1472789ec4469.gif)<br/>
